@@ -10,5 +10,6 @@ pub enum Error {
     MathOverflow = 3,
     MathUnderflow = 4,
     NotImplemented = 5,
-    CampaignNotFound = 6
+    CampaignNotFound = 6,
+    ProofNotFound = 7
 }

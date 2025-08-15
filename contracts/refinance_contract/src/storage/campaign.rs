@@ -1,6 +1,6 @@
 use soroban_sdk::{Env, String};
 
-use crate::storage::{structs::campaign::Campaign, types::storage::DataKey};
+use crate::storage::{structs::campaign::Campaign, types::{error::Error, storage::DataKey}};
 
 pub(crate) fn create_campaign(env: &Env, campaign_id: String, campaign: Campaign) {
     let key = DataKey::Campaign(campaign_id);
@@ -8,8 +8,8 @@ pub(crate) fn create_campaign(env: &Env, campaign_id: String, campaign: Campaign
     env.storage().instance().set(&key, &campaign)
 }
 
-pub(crate) fn get_campaign(env: &Env, campaign_id: String) -> Option<Campaign> {
+pub(crate) fn get_campaign(env: &Env, campaign_id: String) -> Result<Campaign, Error> {
     let key = DataKey::Campaign(campaign_id);
 
-    env.storage().instance().get(&key)
+    env.storage().instance().get(&key).ok_or(Error::CampaignNotFound)
 }
