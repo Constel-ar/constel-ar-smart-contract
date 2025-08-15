@@ -37,7 +37,6 @@ pub trait ContractTrait {
 
     fn add_proof(
         env: Env,
-        campaign_id: String,
         milestone_id: String,
         uri: String,
     ) -> Result<(), Error>;
@@ -90,7 +89,6 @@ impl ContractTrait for Contract {
 
     fn add_proof(
         env: Env,
-        campaign_id: String,
         milestone_id: String,
         uri: String,
     ) -> Result<(), Error> {
