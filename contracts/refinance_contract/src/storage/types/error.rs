@@ -15,5 +15,7 @@ pub enum Error {
     AmountMustBePositive = 8,
     CampaignNotRunning = 9,
     ContributionBelowMinimum = 10,
-    CampaignGoalExceeded = 11
+    CampaignGoalExceeded = 11,
+    CampaignNorRefundable = 12,
+    ContributionNotFound = 13
 }

@@ -65,7 +65,7 @@ pub fn contribute (
     
     set_campaign(&env, campaign_id.clone(), campaign.clone());
 
-    crate::methods::campaign::contribute::add_contribute::add_contribute(&env, &sender, campaign_id.clone(), &amount);
+    crate::methods::campaign::contribute::add_contribute::contribution_added(&env, &sender, campaign_id.clone(), &amount);
 
     Ok(())
 }

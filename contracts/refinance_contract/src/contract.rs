@@ -3,7 +3,7 @@ use soroban_sdk::{contract, contractimpl, Address, Env, Map, String};
 use crate::{
     contract_trait::ContractTrait, 
     methods::{
-        campaign::{add_campaign::add_campaign, contribute::contribute}, proofs::proof::add_proof_logic, public::initialize::initialize}, storage::types::error::Error
+        campaign::{add_campaign::add_campaign, contribute::contribute, refund::refund}, proofs::proof::add_proof_logic, public::initialize::initialize}, storage::types::error::Error
 };
 
 #[contract]
@@ -43,13 +43,13 @@ impl ContractTrait for Contract {
     }
 
     fn add_proof(
-    env: Env,
-    campaign_id: String,
-    milestone_id: String,
-    uri: String,
-) -> Result<(), Error> {
-    add_proof_logic(&env, campaign_id, milestone_id, uri)
-}
+        env: Env,
+        campaign_id: String,
+        milestone_id: String,
+        uri: String,
+    ) -> Result<(), Error> {
+        add_proof_logic(&env, campaign_id, milestone_id, uri)
+    }
 
 
     fn contribute(
@@ -61,8 +61,8 @@ impl ContractTrait for Contract {
         contribute(env, sender, amount, campaign_id)
     }
 
-    fn refund(env: Env, sender: Address, amount: i128, campaign_id: String) -> Result<(), Error> {
-        return Err(Error::NotImplemented); // TODO: U
+    fn refund(env: Env, sender: Address, campaign_id: String) -> Result<(), Error> {
+        refund(&env, sender, campaign_id)
     }
 }
 
