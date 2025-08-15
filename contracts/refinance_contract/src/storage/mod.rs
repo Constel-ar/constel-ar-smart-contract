@@ -4,3 +4,4 @@ pub mod types;
 pub mod campaign;
 pub mod token;
 pub mod proof;
+pub mod contribution;

@@ -1,8 +1,9 @@
 use soroban_sdk::{Address, Env, String};
 
-use crate::{storage::{
+use crate::{
+    storage::{
     admin::get_admin, 
-    campaign::create_campaign, 
+    campaign::set_campaign, 
     structs::campaign::Campaign, 
     types::{
         campaign_state::CampaignState, 
@@ -30,7 +31,7 @@ pub fn add_campaign(
         state: CampaignState::RUNNING
     };
 
-    create_campaign(env, campaign_id, campaign);
+    set_campaign(env, campaign_id, campaign);
 
     Ok(())
 }

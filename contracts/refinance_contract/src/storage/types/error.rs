@@ -11,5 +11,9 @@ pub enum Error {
     MathUnderflow = 4,
     NotImplemented = 5,
     CampaignNotFound = 6,
-    ProofNotFound = 7
+    ProofNotFound = 7,
+    AmountMustBePositive = 8,
+    CampaignNotRunning = 9,
+    ContributionBelowMinimum = 10,
+    CampaignGoalExceeded = 11
 }
