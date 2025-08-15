@@ -1,4 +1,5 @@
 pub mod admin;
 pub mod structs;
 pub mod types;
-pub mod user;
+pub mod campaign;
+pub mod token;
