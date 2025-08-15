@@ -31,10 +31,12 @@ pub trait ContractTrait {
     ) -> Result<(), Error>;
 
     fn add_proof(
-        env: Env,
-        milestone_id: String,
-        uri: String,
-    ) -> Result<(), Error>;
+    env: Env,
+    campaign_id: String,
+    milestone_id: String,
+    uri: String,
+) -> Result<(), Error>;
+
 
     fn contribute(
         env: Env,

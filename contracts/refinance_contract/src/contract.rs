@@ -44,12 +44,14 @@ impl ContractTrait for Contract {
     }
 
     fn add_proof(
-        env: Env,
-        milestone_id: String,
-        uri: String,
-    ) -> Result<(), Error> {
-        crate::methods::proofs::proof::add_proof_logic(&env, campaign_id, milestone_id, uri)
-    }
+    env: Env,
+    campaign_id: String,
+    milestone_id: String,
+    uri: String,
+) -> Result<(), Error> {
+    crate::methods::proofs::proof::add_proof_logic(&env, campaign_id, milestone_id, uri)
+}
+
 
     fn contribute(
         env: Env,
