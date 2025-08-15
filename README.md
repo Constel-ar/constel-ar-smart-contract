@@ -109,6 +109,17 @@ stellar contract deploy --wasm target/wasm32-unknown-unknown/release/base_contra
 
 > When deploying a contract to the **mainnet** or any network with fees, ensure you deploy the `.optimized.wasm` version. Check [Optimize the contract](#3-optimize-the-contract)
 
+
+
+> Important: This contract use USDC, with it's testnet address, change in case of deploying on mainnet:
+
+USDC Mainnet address: GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN
+USDC Testnet address: GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5
+---
+
+
+
+
 ##### Output
 
 ```text
