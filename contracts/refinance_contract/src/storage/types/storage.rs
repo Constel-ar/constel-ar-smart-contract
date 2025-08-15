@@ -1,10 +1,11 @@
-use soroban_sdk::{contracttype, Address};
+use soroban_sdk::{contracttype, String};
 
 #[derive(Clone)]
 #[contracttype]
 pub enum DataKey {
     Admin,
-    Campaign(Address), // campaign_id
-    Milestone(Address), // campaign_id
-    Proof(Address) // milestone_id
+    Token,
+    Campaign(String), // campaign_id
+    Milestone(String), // campaign_id
+    Proof(String) // milestone_id
 }
