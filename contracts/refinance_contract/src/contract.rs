@@ -94,7 +94,7 @@ impl ContractTrait for Contract {
         milestone_id: String,
         uri: String,
     ) -> Result<(), Error> {
-        return Err(Error::NotImplemented); // TODO: U
+        crate::methods::proofs::proof::add_proof_logic(&env, campaign_id, milestone_id, uri)
     }
 
     fn contribute(
