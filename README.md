@@ -1,15 +1,8 @@
 # Stellar Smart Contract Template
 
-This repository contains a template for developing smart contracts. It includes example contract logic, deployment scripts, and tests to help you get started quickly.
+This repository offers a smart contracts for developing Stellar. It includescomponents like example contract logic, deployment scripts, and comprehensive tests, designed to help you quickly get started with your Stellar development.
 
-## Features
-
-- Template for writing custom smart contracts
-- Sample contract with basic functionality
-- Pre-configured testing environment
-- Easy to extend and customize
-
-## Table of Contents
+## 📖 Table of Contents
 
 - [Prerequisites](#prerequisites)
 - [Optional (VSCode)](#optional-vscode)
@@ -22,15 +15,15 @@ This repository contains a template for developing smart contracts. It includes 
   6.  [Wasm File Installation](#6-wasm-file-installation)
 - [Project Structure](#project-structure)
 
-## Prerequisites
+## 🛠️ Prerequisites
 
-Make sure you have the following installed before getting started:
+Before you begin, ensure you have the following installed:
 
 - Rust: rustup and cargo - [Docs](https://developers.stellar.org/docs/build/smart-contracts/getting-started/setup)
 - Stellar SDK - [Docs](https://developers.stellar.org/docs/build/smart-contracts/getting-started/setup#install-the-stellar-cli)
 - Docker: Optional, for running test environments - [Docs](https://developers.stellar.org/docs/tools/developer-tools/quickstart) - [QuickStart](https://github.com/stellar/quickstart)
 
-## Optional (VSCode)
+## 🖥️ Optional (VSCode)
 
 If you're using Visual Studio Code (VSCode) for development, the following extensions will improve your experience by adding linting, formatting, and dependency management support. [Docs](https://developers.stellar.org/docs/build/smart-contracts/getting-started/setup#configure-an-editor)
 
@@ -38,7 +31,7 @@ If you're using Visual Studio Code (VSCode) for development, the following exten
 - [CodeLLDB](https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb) for step-through-debugging.
 - [BetterTOML](https://marketplace.visualstudio.com/items?itemName=bungcip.better-toml) for syntax highlighting, autocompletion, and linting for Cargo.toml and other .toml files.
 
-## Getting Started
+## 🚀 Getting Started
 
 ### 1. Clone the Repository
 
@@ -78,8 +71,6 @@ To optimize the smart contract, use the following command:
 stellar contract optimize --wasm target/wasm32-unknown-unknown/release/base_contract.wasm
 ```
 
-> Building optimized contracts is only necessary when deploying to a network with fees or when analyzing and profiling a contract to get it as small as possible. If you're just starting out writing a contract, these steps are not necessary.
-
 ##### Output
 
 ```text
@@ -109,15 +100,13 @@ stellar contract deploy --wasm target/wasm32-unknown-unknown/release/base_contra
 
 > When deploying a contract to the **mainnet** or any network with fees, ensure you deploy the `.optimized.wasm` version. Check [Optimize the contract](#3-optimize-the-contract)
 
-
-
 > Important: This contract use USDC, with it's testnet address, change in case of deploying on mainnet:
 
 USDC Mainnet address: GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN
+
 USDC Testnet address: GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5
+
 ---
-
-
 
 
 ##### Output
@@ -144,7 +133,7 @@ This can be helpful if you want to have multiple instances of the same smart con
 695da0050d5481fe1a1dc0edc94792223b4a152b80f8a1e360ec05a773c06196
 ```
 
-## Project Structure
+## 📁 Project Structure
 
 ```text
 template-stellar-smart-contract/
@@ -161,7 +150,7 @@ template-stellar-smart-contract/
 └── README.md           # Project documentation
 ```
 
-## Contract Methods
+## 🤝 Contract Methods
 
 ### Admin Functions
 
