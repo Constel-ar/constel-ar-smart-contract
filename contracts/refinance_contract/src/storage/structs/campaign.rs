@@ -11,5 +11,10 @@ pub struct Campaign {
     pub min_donation: i128,
     pub total_raised: i128,
     pub supporters: u32,
-    pub state: CampaignState
+    pub state: CampaignState,
+
+    // validation
+    pub milestones_count: u32,     // Total milestones for this campaign
+    pub current_milestone: u32,    // Latest completed milestone (0 = none)
+    pub withdrawable_amount: i128, // Amount available for withdrawal
 }
