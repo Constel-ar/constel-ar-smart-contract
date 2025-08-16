@@ -23,7 +23,7 @@ pub(crate) fn get_campaign(env: &Env, campaign_id: String) -> Result<Campaign, E
     let key = DataKey::Campaign(campaign_id);
 
     env.storage()
-        .instance()
+        .persistent()
         .get(&key)
         .ok_or(Error::CampaignNotFound)
 }

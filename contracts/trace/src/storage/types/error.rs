@@ -26,4 +26,7 @@ pub enum Error {
 
     CampaignNorRefundable = 17,
     ContributionNotFound = 18,
+    MilestoneInvalidSequence = 19,
+    MilestoneAlreadyCompleted = 20,
+    WithdrawalAmountZero = 21,
 }
