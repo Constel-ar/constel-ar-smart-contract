@@ -12,15 +12,10 @@ pub enum Error {
     NotImplemented = 5,
     CampaignNotFound = 6,
     ProofNotFound = 7,
-
-    MilestoneNotFound = 8,
-    InvalidMilestoneAmount = 9,
-    InvalidGoalAmount = 10,
-    InvalidMinDonation = 11,
-    CampaignAlreadyExists = 12,
-    MilestoneAmountNotIncreasing = 13,
-
-    AmountMustBePositive = 14,
-    ContributionBelowMinimum = 15,
-    CampaignGoalExceeded = 16,
+    AmountMustBePositive = 8,
+    CampaignNotRunning = 9,
+    ContributionBelowMinimum = 10,
+    CampaignGoalExceeded = 11,
+    CampaignNorRefundable = 12,
+    ContributionNotFound = 13
 }

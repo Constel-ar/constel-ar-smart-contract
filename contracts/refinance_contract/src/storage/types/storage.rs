@@ -5,9 +5,8 @@ use soroban_sdk::{contracttype, Address, String};
 pub enum DataKey {
     Admin,
     Token,
-    Campaign(String),       // campaign_id
-    Milestone(String, u32), // campaign_id, sequence
-    // Milestones,
-    Proof(String),                 // milestone_id
-    Contribution(String, Address), // (campaign_id, contributor)
+    Contributions(Address, String), // Usuuario, campaign_id
+    Campaign(String), // campaign_id
+    Milestone(String), // campaign_id
+    Proof(String) // milestone_id
 }

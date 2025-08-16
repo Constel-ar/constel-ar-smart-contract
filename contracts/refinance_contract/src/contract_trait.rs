@@ -45,5 +45,5 @@ pub trait ContractTrait {
         campaign_id: String,
     ) -> Result<(), Error>;
 
-    fn refund(env: Env, sender: Address, amount: i128, campaign_id: String) -> Result<(), Error>;
+    fn refund(env: Env, sender: Address, campaign_id: String) -> Result<(), Error>;
 }

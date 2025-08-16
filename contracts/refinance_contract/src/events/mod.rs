@@ -1,4 +1,4 @@
 pub mod admin;
 pub mod contract;
-pub mod contribute;
-pub mod milestone;
+pub mod add_contribute;
+pub mod refund;
