@@ -1,21 +1,33 @@
 use soroban_sdk::{Address, Env, String};
 
-use crate::{events::add_contribute, methods::{campaign::add_campaign::add_campaign, token::token_transfer}, storage::{campaign::{get_campaign, set_campaign}, contribution::{get_contribution, set_contribution}, structs::contribution::Contribution, types::{campaign_state::CampaignState, error::Error}}};
+use crate::{
+    events::add_contribute, 
+    methods::token::token_transfer, 
+    storage::{
+        campaign::{get_campaign, set_campaign}, 
+        contribution::{get_contribution, set_contribution}, 
+        structs::contribution::Contribution, 
+        types::{campaign_state::CampaignState, error::Error}
+    }
+};
 
-pub fn contribute (
+pub fn contribute(
     env: Env,
     sender: Address,
     amount: i128,
     campaign_id: String,
-) -> Result<(), Error>{
-    
+) -> Result<(), Error> {
     if amount <= 0 {
         return Err(Error::AmountMustBePositive);
     }
 
+    if campaign_id.is_empty() {
+        return Err(Error::InvalidCampaignId);
+    }
+
     sender.require_auth();
     
-    let mut campaign = get_campaign(&env, campaign_id.clone())?;
+    let mut campaign = get_campaign(&env, &campaign_id)?;
 
     if campaign.state != CampaignState::RUNNING {
         return Err(Error::CampaignNotRunning);
@@ -39,7 +51,7 @@ pub fn contribute (
         &contribution_amount
     )?;
 
-    let prev = get_contribution(&env, campaign_id.clone(), sender.clone());
+    let prev = get_contribution(&env, &campaign_id, &sender);
 
     let previous_contribution = match prev {
         None => 0,
@@ -52,13 +64,13 @@ pub fn contribute (
         amount: new_total
     };
 
-    set_contribution(&env, campaign_id.clone(), sender.clone(), new_state);
+    set_contribution(&env, &campaign_id, &sender, &new_state);
 
+    // Only increment supporters if this is a new contributor
     if previous_contribution == 0 {
         campaign.supporters = campaign.supporters.checked_add(1).ok_or(Error::MathOverflow)?;
     }
 
-    
     campaign.total_raised = campaign.total_raised.checked_add(contribution_amount).ok_or(Error::MathOverflow)?;
     
     // Update campaign state if goal is reached or exceeded
@@ -66,9 +78,9 @@ pub fn contribute (
         campaign.state = CampaignState::COMPLETE; 
     }
     
-    set_campaign(&env, campaign_id.clone(), campaign.clone());
+    set_campaign(&env, &campaign_id, &campaign);
 
-    crate::methods::campaign::contribute::add_contribute::contribution_added(&env, &sender, campaign_id.clone(), &amount);
+    add_contribute::contribution_added(&env, &sender, campaign_id, &amount);
 
     Ok(())
 }

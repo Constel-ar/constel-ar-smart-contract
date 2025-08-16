@@ -13,8 +13,8 @@ use crate::{
 pub fn add_campaign(
     env: &Env,
     campaign_id: String,
-    creator: Address ,
-    goal: i128 ,
+    creator: Address,
+    goal: i128,
     min_donation: i128
 ) -> Result<(), Error> {
     let admin = get_admin(env)?;
@@ -30,13 +30,11 @@ pub fn add_campaign(
     }
 
     // Check if campaign already exists
-    if get_campaign(env, campaign_id.clone()).is_ok() {
+    if get_campaign(env, &campaign_id).is_ok() {
         return Err(Error::CampaignAlreadyExists);
     }
 
-    admin.require_auth();
-
-    let campaign = Campaign{
+    let campaign = Campaign {
         campaign_id: campaign_id.clone(),
         owner: creator,
         goal,
@@ -47,7 +45,7 @@ pub fn add_campaign(
         created_at: env.ledger().timestamp()
     };
 
-    set_campaign(env, campaign_id, campaign);
+    set_campaign(env, &campaign_id, &campaign);
 
     Ok(())
 }

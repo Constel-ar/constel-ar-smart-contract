@@ -1,6 +1,6 @@
-use soroban_sdk::{Env, String, Address};
+use soroban_sdk::{Env, String};
 use crate::storage::{
-    campaign::get_campaign, proof::set_proof, structs::{campaign::Campaign, proof::Proof}, types::error::Error
+    campaign::get_campaign, proof::set_proof, structs::{proof::Proof}, types::error::Error
 };
 
 pub fn add_proof_logic(
@@ -9,7 +9,7 @@ pub fn add_proof_logic(
     milestone_id: String,
     uri: String,
 ) -> Result<(), Error> {
-    let campaign = get_campaign(env, campaign_id.clone())?;
+    let campaign = get_campaign(env, &campaign_id)?;
 
     campaign.owner.require_auth();
 
