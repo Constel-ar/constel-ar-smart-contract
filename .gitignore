@@ -25,3 +25,4 @@ target
 
 .repomixignore
 repomix.config.json
+.env

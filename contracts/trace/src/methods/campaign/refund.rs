@@ -5,13 +5,17 @@ use crate::{
     methods::token::token_transfer,
     storage::{
         campaign::{get_campaign, set_campaign},
-        contribution::{get_contribution, remove_contribution},
+        contribution::{get_contribution, has_contribution, remove_contribution},
         types::{campaign_state::CampaignState, error::Error},
     },
 };
 
 pub fn refund(env: &Env, contributor: Address, campaign_id: String) -> Result<(), Error> {
     contributor.require_auth();
+
+    if !has_contribution(env, &campaign_id, &contributor) {
+        return Err(Error::ContributionNotFound);
+    }
 
     let mut campaign = get_campaign(env, campaign_id.clone())?;
 
