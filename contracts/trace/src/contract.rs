@@ -3,7 +3,10 @@ use soroban_sdk::{contract, contractimpl, Address, Env, Map, String};
 use crate::{
     contract_trait::ContractTrait,
     methods::{
-        campaign::add_campaign::add_campaign, contribute::contribute,
+        campaign::{add_campaign::add_campaign, refund::refund},
+        contribute::contribute,
+        milestones::add_milestone::add_milestone,
+        proofs::proof::add_proof_logic,
         public::initialize::initialize,
     },
     storage::types::error::Error,
@@ -34,7 +37,7 @@ impl ContractTrait for Contract {
         milestone_id: String,
         amount: i128,
     ) -> Result<(), Error> {
-        return Err(Error::NotImplemented);
+        add_milestone(&env, campaign_id, milestone_id, amount)
     }
 
     fn batch_add_milestones(
@@ -42,7 +45,10 @@ impl ContractTrait for Contract {
         campaign_id: String,
         milestones: Map<String, i128>,
     ) -> Result<(), Error> {
-        return Err(Error::NotImplemented);
+        for (milestone_id, amount) in milestones.iter() {
+            add_milestone(&env, campaign_id.clone(), milestone_id, amount)?;
+        }
+        Ok(())
     }
 
     fn add_proof(
@@ -51,7 +57,7 @@ impl ContractTrait for Contract {
         milestone_id: String,
         uri: String,
     ) -> Result<(), Error> {
-        crate::methods::proofs::proof::add_proof_logic(&env, campaign_id, milestone_id, uri)
+        add_proof_logic(&env, campaign_id, milestone_id, uri)
     }
 
     fn contribute(
@@ -64,7 +70,7 @@ impl ContractTrait for Contract {
     }
 
     fn refund(env: Env, sender: Address, amount: i128, campaign_id: String) -> Result<(), Error> {
-        return Err(Error::NotImplemented); // TODO: U
+        refund(&env, sender, campaign_id)
     }
 }
 

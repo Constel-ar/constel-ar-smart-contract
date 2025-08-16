@@ -1,8 +1,8 @@
 use soroban_sdk::contracttype;
 
-#[derive(Clone)]
+#[derive(Clone, PartialEq, PartialOrd)]
 #[contracttype]
 pub enum CampaignState {
     RUNNING,
-    COMPLETE
+    COMPLETE,
 }
