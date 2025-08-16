@@ -19,4 +19,8 @@ pub enum Error {
     InvalidMinDonation = 11,
     CampaignAlreadyExists = 12,
     MilestoneAmountNotIncreasing = 13,
+
+    AmountMustBePositive = 14,
+    ContributionBelowMinimum = 15,
+    CampaignGoalExceeded = 16,
 }

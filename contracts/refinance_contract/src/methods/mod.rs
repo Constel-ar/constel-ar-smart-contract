@@ -4,3 +4,4 @@ pub mod contribute;
 pub mod milestones;
 pub mod proofs;
 pub mod public;
+pub mod token;

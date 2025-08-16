@@ -2,7 +2,7 @@ use soroban_sdk::{Address, Env, String};
 
 use crate::storage::{
     admin::get_admin,
-    campaign::{create_campaign, has_campaign},
+    campaign::{has_campaign, set_campaign},
     structs::campaign::Campaign,
     types::{campaign_state::CampaignState, error::Error},
 };
@@ -45,7 +45,7 @@ pub fn add_campaign(
         withdrawable_amount: 0,
     };
 
-    create_campaign(env, campaign_id, campaign);
+    set_campaign(env, &campaign_id, &campaign);
 
     Ok(())
 }

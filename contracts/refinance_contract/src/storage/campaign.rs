@@ -14,10 +14,9 @@ pub(crate) fn has_campaign(env: &Env, campaign_id: &String) -> bool {
     env.storage().persistent().has(&key)
 }
 
-pub(crate) fn create_campaign(env: &Env, campaign_id: String, campaign: Campaign) {
-    let key = DataKey::Campaign(campaign_id);
-
-    env.storage().instance().set(&key, &campaign)
+pub(crate) fn set_campaign(env: &Env, campaign_id: &String, campaign: &Campaign) {
+    let key = campaign_key(campaign_id);
+    env.storage().persistent().set(&key, campaign);
 }
 
 pub(crate) fn get_campaign(env: &Env, campaign_id: String) -> Result<Campaign, Error> {

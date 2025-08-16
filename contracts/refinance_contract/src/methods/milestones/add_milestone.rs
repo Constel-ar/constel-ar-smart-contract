@@ -47,7 +47,7 @@ pub fn add_milestone(
     // Update campaign milestone count
     let mut updated_campaign = campaign;
     updated_campaign.milestones_count = sequence;
-    storage::campaign::create_campaign(env, campaign_id.clone(), updated_campaign);
+    storage::campaign::set_campaign(env, &campaign_id, &updated_campaign);
 
     // Emit event
     events::milestone::milestone_created(env, campaign_id.clone(), sequence, target_amount);
