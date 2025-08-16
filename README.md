@@ -1,4 +1,4 @@
-# Stellar Smart Contract Template
+# Trace Smart Contracts
 
 This repository offers a smart contracts for developing Stellar. It includescomponents like example contract logic, deployment scripts, and comprehensive tests, designed to help you quickly get started with your Stellar development.
 
