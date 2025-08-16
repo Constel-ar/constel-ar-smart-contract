@@ -13,7 +13,7 @@ pub fn set_admin(env: &Env, admin: Address) -> Result<Address, Error> {
         return Err(Error::ContractNotInitialized);
     }
 
-    let current_admin = get_admin(env);
+    let current_admin = get_admin(env)?;
 
     current_admin.require_auth();
 

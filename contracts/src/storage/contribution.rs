@@ -11,7 +11,7 @@ pub(crate) fn set_contribution(env: &Env, campaign_id: String, user: Address, co
 pub(crate) fn get_contribution(env: &Env, campaign_id: String, user: Address) -> Option<Contribution> {
     let key = DataKey::Contributions(user, campaign_id);
 
-    env.storage().instance().get(&key).unwrap_or(None)
+    env.storage().instance().get(&key)
 }
 
 pub(crate) fn remove_contribution(env: &Env, campaign_id: String, user: Address) {

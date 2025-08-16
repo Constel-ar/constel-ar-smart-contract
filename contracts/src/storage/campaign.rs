@@ -1,6 +1,13 @@
 use soroban_sdk::{Env, String};
 
-use crate::storage::{structs::campaign::Campaign, types::{error::Error, storage::DataKey}};
+use crate::storage::{
+    structs::campaign::Campaign, 
+    types::{
+        error::Error, 
+        storage::DataKey, 
+        campaign_state::CampaignState
+    }
+};
 
 pub(crate) fn set_campaign(env: &Env, campaign_id: String, campaign: Campaign) {
     let key = DataKey::Campaign(campaign_id);

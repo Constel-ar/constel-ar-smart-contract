@@ -39,7 +39,7 @@ pub fn contribute (
         &contribution_amount
     )?;
 
-    let mut prev = get_contribution(&env, campaign_id.clone(), sender.clone());
+    let prev = get_contribution(&env, campaign_id.clone(), sender.clone());
 
     let previous_contribution = match prev {
         None => 0,
@@ -60,8 +60,11 @@ pub fn contribute (
 
     
     campaign.total_raised = campaign.total_raised.checked_add(contribution_amount).ok_or(Error::MathOverflow)?;
-    if campaign.total_raised == campaign.goal { campaign.state = CampaignState::COMPLETE; }
     
+    // Update campaign state if goal is reached or exceeded
+    if campaign.total_raised >= campaign.goal { 
+        campaign.state = CampaignState::COMPLETE; 
+    }
     
     set_campaign(&env, campaign_id.clone(), campaign.clone());
 
