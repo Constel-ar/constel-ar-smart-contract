@@ -11,5 +11,6 @@ pub struct Campaign {
     pub min_donation: i128,
     pub total_raised: i128,
     pub supporters: u32,
-    pub state: CampaignState
+    pub state: CampaignState,
+    pub created_at: u64
 }
