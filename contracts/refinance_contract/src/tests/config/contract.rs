@@ -32,7 +32,7 @@ impl<'a> ContractTest<'a> {
         //     .mock_all_auths()
         //     .mint(&user_b, &BASE_MINT_AMOUNT);
 
-        let contract_id = env.register(Contract, (&admin,));
+        let contract_id = env.register(Contract, (&admin, &token_issuer));
         let contract = ContractClient::new(&env, &contract_id);
 
         ContractTest {

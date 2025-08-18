@@ -3,7 +3,7 @@ use soroban_sdk::{contract, contractimpl, Address, Env, Map, String};
 use crate::{methods::public::initialize::initialize, storage::types::error::Error};
 
 pub trait ContractTrait {
-    fn __constructor(env: Env, admin: Address) -> Result<(), Error>;
+    fn __constructor(env: Env, admin: Address, token: Address) -> Result<(), Error>;
 
     // === CAMPAIGN FUNCTIONS ===
     fn add_campaign(
@@ -44,7 +44,7 @@ pub struct Contract;
 
 #[contractimpl]
 impl ContractTrait for Contract {
-    fn __constructor(env: Env, admin: Address) -> Result<(), Error> {
+    fn __constructor(env: Env, admin: Address, token: Address) -> Result<(), Error> {
         initialize(&env, &admin)
     }
 
