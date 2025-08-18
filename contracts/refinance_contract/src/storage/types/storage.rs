@@ -4,7 +4,7 @@ use soroban_sdk::{contracttype, Address};
 #[contracttype]
 pub enum DataKey {
     Admin,
-    Campaign(Address), // campaign_id
+    Campaign(Address),  // campaign_id
     Milestone(Address), // campaign_id
-    Proof(Address) // milestone_id
+    Proof(Address),     // milestone_id
 }

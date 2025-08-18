@@ -1,14 +1,6 @@
 use soroban_sdk::{contract, contractimpl, Address, Env, Map, String};
 
-use crate::{
-    methods::{
-        public::{
-            initialize::initialize},
-        },
-    storage::{
-        types::{error::Error},
-    },
-};
+use crate::{methods::public::initialize::initialize, storage::types::error::Error};
 
 pub trait ContractTrait {
     fn __constructor(env: Env, admin: Address, token: Address) -> Result<(), Error>;
@@ -35,11 +27,7 @@ pub trait ContractTrait {
         milestones: Map<String, i128>, // (id, amount)
     ) -> Result<(), Error>;
 
-    fn add_proof(
-        env: Env,
-        milestone_id: String,
-        uri: String,
-    ) -> Result<(), Error>;
+    fn add_proof(env: Env, milestone_id: String, uri: String) -> Result<(), Error>;
 
     fn contribute(
         env: Env,
@@ -57,7 +45,7 @@ pub struct Contract;
 #[contractimpl]
 impl ContractTrait for Contract {
     fn __constructor(env: Env, admin: Address, token: Address) -> Result<(), Error> {
-        initialize(&env, admin)
+        initialize(&env, &admin)
     }
 
     fn add_campaign(
@@ -87,11 +75,7 @@ impl ContractTrait for Contract {
         return Err(Error::NotImplemented);
     }
 
-    fn add_proof(
-        env: Env,
-        milestone_id: String,
-        uri: String,
-    ) -> Result<(), Error> {
+    fn add_proof(env: Env, milestone_id: String, uri: String) -> Result<(), Error> {
         return Err(Error::NotImplemented); // TODO: U
     }
 

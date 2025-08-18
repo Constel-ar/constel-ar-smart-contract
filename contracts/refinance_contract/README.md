@@ -67,7 +67,7 @@ stellar contract build
 This will generate the contract's binary in the **target** directory. You can find it inside:
 
 ```text
-target/wasm32-unknown-unknown/release/base_contract.wasm
+target/wasm32v1-none/release/refinance_contract.wasm
 ```
 
 ### 3. Optimize the Contract
@@ -75,7 +75,7 @@ target/wasm32-unknown-unknown/release/base_contract.wasm
 To optimize the smart contract, use the following command:
 
 ```bash
-stellar contract optimize --wasm target/wasm32-unknown-unknown/release/base_contract.wasm
+stellar contract optimize --wasm target/wasm32v1-none/release/refinance_contract.wasm
 ```
 
 > Building optimized contracts is only necessary when deploying to a network with fees or when analyzing and profiling a contract to get it as small as possible. If you're just starting out writing a contract, these steps are not necessary.
@@ -83,8 +83,8 @@ stellar contract optimize --wasm target/wasm32-unknown-unknown/release/base_cont
 ##### Output
 
 ```text
-Reading: target/wasm32-unknown-unknown/release/base_contract.wasm (3452 bytes)
-Optimized: target/wasm32-unknown-unknown/release/base_contract.optimized.wasm (2877 bytes)
+Reading: target/wasm32-unknown-unknown/release/refinance.wasm (3452 bytes)
+Optimized: target/wasm32-unknown-unknown/release/refinance.optimized.wasm (2877 bytes)
 ```
 
 > The size in bytes may vary depending on each contract developed.
