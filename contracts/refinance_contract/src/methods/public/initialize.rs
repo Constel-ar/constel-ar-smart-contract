@@ -8,7 +8,7 @@ use crate::{
     },
 };
 
-pub fn initialize(env: &Env, admin: Address) -> Result<(), Error> {
+pub fn initialize(env: &Env, admin: &Address) -> Result<(), Error> {
     if has_admin(env) {
         return Err(Error::ContractInitialized);
     }
