@@ -38,15 +38,15 @@ If you're using Visual Studio Code (VSCode) for development, the following exten
 #### HTTPS:
 
 ```bash
-git clone https://github.com/Constel-ar/constel-ar-smart-contract.git .
-cd template-stellar-smart-contract
+git clone https://github.com/Constel-ar/constel-ar-smart-contract.git
+cd constel-ar-smart-contract
 ```
 
 #### SSH:
 
 ```bash
-git clone git@github.com:Constel-ar/constel-ar-smart-contract.git .
-cd template-stellar-smart-contract
+git clone git@github.com:Constel-ar/constel-ar-smart-contract.git
+cd constel-ar-smart-contract
 ```
 
 ### 2. Compile the Contract
