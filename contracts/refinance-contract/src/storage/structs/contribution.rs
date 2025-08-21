@@ -1,7 +1,7 @@
-use soroban_sdk::{contracttype};
+use soroban_sdk::contracttype;
 
 #[derive(Clone)]
 #[contracttype]
 pub struct Contribution {
-    pub amount: i128
+    pub amount: i128,
 }
