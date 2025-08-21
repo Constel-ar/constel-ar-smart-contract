@@ -1,7 +1,10 @@
-use soroban_sdk::{Env, String, Address};
 use crate::storage::{
-    campaign::get_campaign, proof::set_proof, structs::{campaign::Campaign, proof::Proof}, types::error::Error
+    campaign::get_campaign,
+    proof::set_proof,
+    structs::{campaign::Campaign, proof::Proof},
+    types::error::Error,
 };
+use soroban_sdk::{Address, Env, String};
 
 pub fn add_proof_logic(
     env: &Env,
@@ -13,14 +16,14 @@ pub fn add_proof_logic(
 
     campaign.owner.require_auth();
 
-    let proof = Proof{
+    let proof = Proof {
         milestone_id: milestone_id.clone(),
-        uri: uri.clone()
+        uri: uri.clone(),
     };
 
     set_proof(env, milestone_id.clone(), &proof);
-    
-     // Emitir evento
+
+    // Emitir evento
     env.events().publish(
         ("proof_added", campaign_id.clone(), milestone_id),
         uri.clone(),

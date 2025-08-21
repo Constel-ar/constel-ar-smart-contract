@@ -13,5 +13,8 @@ pub(crate) fn set_proof(env: &Env, milestone_id: String, proof: &Proof) {
 pub(crate) fn get_proof(env: &Env, milestone_id: String) -> Result<Proof, Error> {
     let key = DataKey::Proof(milestone_id);
 
-    env.storage().instance().get(&key).ok_or(Error::ProofNotFound)
+    env.storage()
+        .instance()
+        .get(&key)
+        .ok_or(Error::ProofNotFound)
 }

@@ -1,10 +1,6 @@
 use soroban_sdk::{Address, Env, Map, String};
 
-use crate::{
-    storage::{
-        types::{error::Error},
-    },
-};
+use crate::storage::types::error::Error;
 pub trait ContractTrait {
     fn __constructor(env: Env, admin: Address, token: Address) -> Result<(), Error>;
 
@@ -31,12 +27,11 @@ pub trait ContractTrait {
     ) -> Result<(), Error>;
 
     fn add_proof(
-    env: Env,
-    campaign_id: String,
-    milestone_id: String,
-    uri: String,
-) -> Result<(), Error>;
-
+        env: Env,
+        campaign_id: String,
+        milestone_id: String,
+        uri: String,
+    ) -> Result<(), Error>;
 
     fn contribute(
         env: Env,

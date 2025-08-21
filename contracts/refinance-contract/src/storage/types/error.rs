@@ -20,5 +20,5 @@ pub enum Error {
     ContributionNotFound = 13,
     InvalidCampaignId = 14,
     CampaignAlreadyExists = 15,
-    InsufficientFunds = 16
+    InsufficientFunds = 16,
 }

@@ -13,5 +13,8 @@ pub(crate) fn set_token(env: &Env, token: &Address) {
 pub(crate) fn get_token(env: &Env) -> Result<Address, Error> {
     let key = DataKey::Token;
 
-    env.storage().instance().get(&key).ok_or(Error::ContractNotInitialized)
+    env.storage()
+        .instance()
+        .get(&key)
+        .ok_or(Error::ContractNotInitialized)
 }

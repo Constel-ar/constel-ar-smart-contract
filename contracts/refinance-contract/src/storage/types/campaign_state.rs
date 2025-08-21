@@ -5,5 +5,5 @@ use soroban_sdk::contracttype;
 pub enum CampaignState {
     RUNNING,
     COMPLETE,
-    CANCELLED
+    CANCELLED,
 }
