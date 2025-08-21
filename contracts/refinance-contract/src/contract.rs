@@ -1,9 +1,13 @@
 use soroban_sdk::{contract, contractimpl, Address, Env, Map, String};
 
 use crate::{
-    contract_trait::ContractTrait, 
+    contract_trait::ContractTrait,
     methods::{
-        campaign::{add_campaign::add_campaign, contribute::contribute, refund::refund}, proofs::proof::add_proof_logic, public::initialize::initialize}, storage::types::error::Error
+        campaign::{add_campaign::add_campaign, contribute::contribute, refund::refund},
+        proofs::proof::add_proof_logic,
+        public::initialize::initialize,
+    },
+    storage::types::error::Error,
 };
 
 #[contract]
@@ -50,7 +54,6 @@ impl ContractTrait for Contract {
     ) -> Result<(), Error> {
         add_proof_logic(&env, campaign_id, milestone_id, uri)
     }
-
 
     fn contribute(
         env: Env,

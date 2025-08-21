@@ -4,5 +4,5 @@ use soroban_sdk::{contracttype, String};
 #[contracttype]
 pub struct Proof {
     pub milestone_id: String,
-    pub uri: String
+    pub uri: String,
 }

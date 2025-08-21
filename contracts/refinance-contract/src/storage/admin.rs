@@ -1,6 +1,6 @@
 use soroban_sdk::{Address, Env};
 
-use super::types::{storage::DataKey, error::Error};
+use super::types::{error::Error, storage::DataKey};
 
 pub(crate) fn has_admin(env: &Env) -> bool {
     let key = DataKey::Admin;
@@ -17,5 +17,8 @@ pub(crate) fn set_admin(env: &Env, admin: &Address) {
 pub(crate) fn get_admin(env: &Env) -> Result<Address, Error> {
     let key = DataKey::Admin;
 
-    env.storage().instance().get(&key).ok_or(Error::ContractNotInitialized)
+    env.storage()
+        .instance()
+        .get(&key)
+        .ok_or(Error::ContractNotInitialized)
 }
