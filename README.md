@@ -38,14 +38,14 @@ If you're using Visual Studio Code (VSCode) for development, the following exten
 #### HTTPS:
 
 ```bash
-git clone https://github.com/bigger-tech/template-stellar-smart-contract.git .
+git clone https://github.com/Constel-ar/constel-ar-smart-contract.git .
 cd template-stellar-smart-contract
 ```
 
 #### SSH:
 
 ```bash
-git clone git@github.com:bigger-tech/template-stellar-smart-contract.git .
+git clone git@github.com:Constel-ar/constel-ar-smart-contract.git .
 cd template-stellar-smart-contract
 ```
 
@@ -107,7 +107,6 @@ USDC Mainnet address: GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN
 USDC Testnet address: GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5
 
 ---
-
 
 ##### Output
 
