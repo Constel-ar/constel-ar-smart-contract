@@ -1,13 +1,5 @@
-use crate::{
-    storage::types::storage::DataKey,
-    tests::config::{
-        constants::BASE_MINT_AMOUNT, contract::ContractTest, utils::get_contract_events,
-    },
-};
-use soroban_sdk::{
-    testutils::{MockAuth, MockAuthInvoke},
-    vec, IntoVal, Symbol,
-};
+use crate::tests::config::{contract::ContractTest, utils::get_contract_events};
+use soroban_sdk::{vec, IntoVal, Symbol};
 
 #[test]
 fn deploy_test() {

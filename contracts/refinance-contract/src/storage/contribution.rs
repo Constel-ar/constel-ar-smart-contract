@@ -1,9 +1,6 @@
 use soroban_sdk::{Address, Env, String};
 
-use crate::storage::{
-    structs::{campaign::Campaign, contribution::Contribution},
-    types::{error::Error, storage::DataKey},
-};
+use crate::storage::{structs::contribution::Contribution, types::storage::DataKey};
 
 pub(crate) fn set_contribution(
     env: &Env,
