@@ -1,10 +1,7 @@
 use crate::storage::{
-    campaign::get_campaign,
-    proof::set_proof,
-    structs::{campaign::Campaign, proof::Proof},
-    types::error::Error,
+    campaign::get_campaign, proof::set_proof, structs::proof::Proof, types::error::Error,
 };
-use soroban_sdk::{Address, Env, String};
+use soroban_sdk::{Env, String};
 
 pub fn add_proof_logic(
     env: &Env,

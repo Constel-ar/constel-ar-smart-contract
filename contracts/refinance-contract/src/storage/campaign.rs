@@ -2,7 +2,7 @@ use soroban_sdk::{Env, String};
 
 use crate::storage::{
     structs::campaign::Campaign,
-    types::{campaign_state::CampaignState, error::Error, storage::DataKey},
+    types::{error::Error, storage::DataKey},
 };
 
 pub(crate) fn set_campaign(env: &Env, campaign_id: String, campaign: Campaign) {

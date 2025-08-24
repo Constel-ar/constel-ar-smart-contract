@@ -30,18 +30,18 @@ impl ContractTrait for Contract {
     }
 
     fn add_milestone(
-        env: Env,
-        campaign_id: String,
-        milestone_id: String,
-        amount: i128,
+        _env: Env,
+        _campaign_id: String,
+        _milestone_id: String,
+        _amount: i128,
     ) -> Result<(), Error> {
         return Err(Error::NotImplemented);
     }
 
     fn batch_add_milestones(
-        env: Env,
-        campaign_id: String,
-        milestones: Map<String, i128>,
+        _env: Env,
+        _campaign_id: String,
+        _milestones: Map<String, i128>,
     ) -> Result<(), Error> {
         return Err(Error::NotImplemented);
     }
@@ -71,7 +71,7 @@ impl ContractTrait for Contract {
 
 impl Contract {
     // === EVENTS ===
-    /**
+    /*
      *
      fn role_added(env: &Env, role: u32, address: Address)
 
@@ -89,7 +89,4 @@ impl Contract {
 
     fn withdraw(env: Env, sender: Address, amount: i128, campaign_id: String) -> Result<(), Error>; // privada
     */
-    fn withdraw(env: Env, sender: Address, amount: i128, campaign_id: String) -> Result<(), Error> {
-        return Err(Error::NotImplemented); // TODO: U
-    }
 }

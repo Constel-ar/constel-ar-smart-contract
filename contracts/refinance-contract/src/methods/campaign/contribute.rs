@@ -2,7 +2,7 @@ use soroban_sdk::{Address, Env, String};
 
 use crate::{
     events::add_contribute,
-    methods::{campaign::add_campaign::add_campaign, token::token_transfer},
+    methods::token::token_transfer,
     storage::{
         campaign::{get_campaign, set_campaign},
         contribution::{get_contribution, set_contribution},

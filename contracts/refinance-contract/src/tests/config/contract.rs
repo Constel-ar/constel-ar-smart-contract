@@ -1,8 +1,8 @@
-use soroban_sdk::{testutils::Address as _, token, Address, Env};
+use soroban_sdk::{testutils::Address as _, Address, Env};
 
 use crate::{contract::ContractClient, Contract};
 
-use super::{constants::BASE_MINT_AMOUNT, utils::create_token_contract};
+//use super::utils::create_token_contract;
 
 pub struct ContractTest<'a> {
     pub env: Env,
@@ -10,7 +10,7 @@ pub struct ContractTest<'a> {
     pub admin: Address,
     //pub user_a: Address,
     //pub user_b: Address,
-    pub token: (token::Client<'a>, token::StellarAssetClient<'a>, Address),
+    //pub token: (token::Client<'a>, token::StellarAssetClient<'a>, Address),
 }
 
 impl<'a> ContractTest<'a> {
@@ -23,7 +23,7 @@ impl<'a> ContractTest<'a> {
         //let user_a = Address::generate(&env);
         //let user_b = Address::generate(&env);
 
-        let (token_client, token_admin) = create_token_contract(&env, &admin);
+        //let (token_client, token_admin) = create_token_contract(&env, &admin);
 
         // token_admin
         //     .mock_all_auths()
@@ -41,7 +41,7 @@ impl<'a> ContractTest<'a> {
             admin,
             //user_a,
             //user_b,
-            token: (token_client, token_admin, token_issuer),
+            //token: (token_client, token_admin, token_issuer),
         }
     }
 }
